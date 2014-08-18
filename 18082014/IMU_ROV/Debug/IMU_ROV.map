@@ -1,0 +1,765 @@
+******************************************************************************
+                  TI ARM Linker PC v5.1.5                      
+******************************************************************************
+>> Linked Sat Aug 09 16:08:03 2014
+
+OUTPUT FILE NAME:   <IMU_ROV.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00007229
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  00007adc  00038524  R  X
+  SRAM                  20000000   00008000  0000104d  00006fb3  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00007ae0   00007ae0    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    000074a4   000074a4    r-x .text
+  00007710    00007710    0000025c   0000025c    r-- .const
+  00007970    00007970    00000170   00000170    r-- .cinit
+20000000    20000000    00001050   00000000    rw-
+  20000000    20000000    000009bd   00000000    rw- .bss
+  200009c0    200009c0    00000490   00000000    rw- .data
+  20000e50    20000e50    00000200   00000000    rw- .stack
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.text      0    0000026c    000074a4     
+                  0000026c    00004570     Kalman_Sim.obj (.text)
+                  000047dc    000003b0     Magneto.obj (.text)
+                  00004b8c    000003b0     My_I2C.obj (.text)
+                  00004f3c    000002dc     My_Timer.obj (.text)
+                  00005218    000002d0     main.obj (.text)
+                  000054e8    000002bc     Accelerometer.obj (.text)
+                  000057a4    000002a8     rtsv7M4_T_le_v4SPD16_eabi.lib : xsin.obj (.text)
+                  00005a4c    00000254     Gyro.obj (.text)
+                  00005ca0    000001b6     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_add_t2.obj (.text)
+                  00005e56    00000002     --HOLE-- [fill = 0]
+                  00005e58    0000018c                                   : xatan.obj (.text)
+                  00005fe4    0000016c                                   : fmod.obj (.text)
+                  00006150    00000148                                   : sqrt.obj (.text)
+                  00006298    00000136                                   : fd_div_t2.obj (.text)
+                  000063ce    00000002     --HOLE-- [fill = 0]
+                  000063d0    00000130     rt_atan232_snf.obj (.text)
+                  00006500    0000011c     rtsv7M4_T_le_v4SPD16_eabi.lib : asin.obj (.text)
+                  0000661c    00000118                                   : atan2.obj (.text)
+                  00006734    00000114     rt_nonfinite.obj (.text)
+                  00006848    00000110     rtsv7M4_T_le_v4SPD16_eabi.lib : xdscale.obj (.text)
+                  00006958    000000fc                                   : fd_mul_t2.obj (.text)
+                  00006a54    000000d0     rtGetInf.obj (.text)
+                  00006b24    000000c4     rtsv7M4_T_le_v4SPD16_eabi.lib : xdnorm.obj (.text)
+                  00006be8    000000b8     driverlib.lib : gpio.obj (.text:GPIOPadConfigSet)
+                  00006ca0    000000b4                   : sysctl.obj (.text:SysCtlClockGet)
+                  00006d54    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.obj (.text)
+                  00006df0    00000094                                   : auto_init.obj (.text)
+                  00006e84    00000086                                   : fd_cmp_t2.obj (.text:__aeabi_cdcmple)
+                  00006f0a    00000086                                   : fd_cmp_t2.obj (.text:__aeabi_cdrcmple)
+                  00006f90    00000078                                   : memset_t2.obj (.text)
+                  00007008    0000006c     rtGetNaN.obj (.text)
+                  00007074    00000064     rtsv7M4_T_le_v4SPD16_eabi.lib : xdunscal.obj (.text)
+                  000070d8    00000060     driverlib.lib : interrupt.obj (.text:IntEnable)
+                  00007138    0000005e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_rle.obj (.text)
+                  00007196    0000004a                                   : fd_tos_t2.obj (.text)
+                  000071e0    00000048     driverlib.lib : gpio.obj (.text:GPIOPinConfigure)
+                  00007228    00000048     rtsv7M4_T_le_v4SPD16_eabi.lib : boot.obj (.text)
+                  00007270    00000048                                   : fd_toi_t2.obj (.text)
+                  000072b8    00000044     My_Init.obj (.text)
+                  000072fc    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : cpy_tbl.obj (.text)
+                  00007340    00000044                                   : exit.obj (.text)
+                  00007384    00000044                                   : xdtest.obj (.text)
+                  000073c8    00000040     driverlib.lib : uart.obj (.text:UARTConfigSetExpClk)
+                  00007408    00000040     rtsv7M4_T_le_v4SPD16_eabi.lib : signal.obj (.text)
+                  00007448    00000038                                   : fs_tod_t2.obj (.text)
+                  00007480    00000034     driverlib.lib : sysctl.obj (.text:SysCtlPeripheralEnable)
+                  000074b4    00000034     rtsv7M4_T_le_v4SPD16_eabi.lib : feraiseexcept.obj (.text)
+                  000074e8    00000030                                   : xferaise.obj (.text)
+                  00007518    0000002e                                   : i_tofd_t2.obj (.text)
+                  00007546    0000002e                                   : raise.obj (.text)
+                  00007574    0000002a     driverlib.lib : gpio.obj (.text:GPIODirModeSet)
+                  0000759e    00000020     rtsv7M4_T_le_v4SPD16_eabi.lib : u_tofd_t2.obj (.text)
+                  000075be    00000002     --HOLE-- [fill = 0]
+                  000075c0    0000001c     driverlib.lib : uart.obj (.text:UARTDisable)
+                  000075dc    0000001a     rtsv7M4_T_le_v4SPD16_eabi.lib : cos.obj (.text)
+                  000075f6    0000001a                                   : sin.obj (.text)
+                  00007610    00000018                                   : args_main.obj (.text)
+                  00007628    00000014     driverlib.lib : uart.obj (.text:UARTEnable)
+                  0000763c    00000014     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.obj (.text)
+                  00007650    00000012     driverlib.lib : gpio.obj (.text:GPIOPinTypeGPIOOutput)
+                  00007662    00000012                   : gpio.obj (.text:GPIOPinTypeI2CSCL)
+                  00007674    00000012                   : gpio.obj (.text:GPIOPinTypeUART)
+                  00007686    00000012     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.obj (.text:decompress:ZI)
+                  00007698    0000000e                                   : copy_decompress_none.obj (.text:decompress:none)
+                  000076a6    0000000c     driverlib.lib : cpu.obj (.text:CPUcpsie)
+                  000076b2    0000000c                   : uart.obj (.text:UARTCharsAvail)
+                  000076be    0000000c     tm4c123gh6pm_startup_ccs.obj (.text)
+                  000076ca    0000000a     driverlib.lib : interrupt.obj (.text:IntMasterEnable)
+                  000076d4    0000000a                   : uart.obj (.text:UARTCharGet)
+                  000076de    0000000a                   : uart.obj (.text:UARTCharPut)
+                  000076e8    0000000a                   : uart.obj (.text:UARTIntStatus)
+                  000076f2    00000008                   : uart.obj (.text:UARTIntEnable)
+                  000076fa    00000006                   : gpio.obj (.text:GPIOPinWrite)
+                  00007700    00000006                   : sysctl.obj (.text:SysCtlDelay)
+                  00007706    00000006     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_rle.obj (.text:decompress:rle24)
+                  0000770c    00000004     driverlib.lib : uart.obj (.text:UARTIntClear)
+
+.const     0    00007710    0000025c     
+                  00007710    00000088     rtsv7M4_T_le_v4SPD16_eabi.lib : xatan.obj (.const)
+                  00007798    00000080                                   : xsin.obj (.const)
+                  00007818    00000078     driverlib.lib : gpio.obj (.const:g_pui32GPIOBaseAddrs)
+                  00007890    00000070                   : interrupt.obj (.const)
+                  00007900    0000006c                   : sysctl.obj (.const:g_pui32Xtals)
+
+.cinit     0    00007970    00000170     
+                  00007970    0000014a     (.cinit..data.load) [load image, compression = rle]
+                  00007aba    00000002     --HOLE-- [fill = 0]
+                  00007abc    0000000c     (__TI_handler_table)
+                  00007ac8    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00007ad0    00000010     (__TI_cinit_table)
+
+.bss       0    20000000    000009bd     UNINITIALIZED
+                  20000000    00000154     Kalman_Sim.obj (.bss:Kalman_Sim_DWork)
+                  20000154    00000090     Kalman_Sim.obj (.bss:eml_Kk)
+                  200001e4    00000090     Kalman_Sim.obj (.bss:eml_P)
+                  20000274    00000090     Kalman_Sim.obj (.bss:eml_P_0)
+                  20000304    00000090     Kalman_Sim.obj (.bss:eml_Phik)
+                  20000394    00000090     Kalman_Sim.obj (.bss:eml_Phik_0)
+                  20000424    00000090     Kalman_Sim.obj (.bss:eml_b_x)
+                  200004b4    00000090     Kalman_Sim.obj (.bss:tmp)
+                  20000544    00000090     Kalman_Sim.obj (.bss:tmp_0)
+                  200005d4    00000090     Kalman_Sim.obj (.bss:tmp_3)
+                  20000664    00000004     (.common:Kalman_Sim_M_)
+                  20000668    00000048     Kalman_Sim.obj (.bss:eml_b_d)
+                  200006b0    00000048     Kalman_Sim.obj (.bss:eml_d)
+                  200006f8    00000030     My_Init.obj (.bss:Uart_Array)
+                  20000728    00000028     My_Init.obj (.bss:rx_temp_buffer)
+                  20000750    00000024     Kalman_Sim.obj (.bss:eml_C_0)
+                  20000774    00000024     Kalman_Sim.obj (.bss:eml_I)
+                  20000798    00000024     Kalman_Sim.obj (.bss:eml_I_0)
+                  200007bc    00000024     Kalman_Sim.obj (.bss:tmp_1)
+                  200007e0    00000024     Kalman_Sim.obj (.bss:tmp_2)
+                  20000804    00000018     (.common:eml_x)
+                  2000081c    00000018     (.common:eml_x_0)
+                  20000834    00000018     (.common:rtb_TmpSignalConversionAtSFun_0)
+                  2000084c    00000018     (.common:rtb_TmpSignalConversionAtSFunct)
+                  20000864    00000018     (.common:rtb_x_h)
+                  2000087c    00000004     (.common:eml_C)
+                  20000880    00000018     (.common:time_1)
+                  20000898    0000000c     (.common:Out1)
+                  200008a4    0000000c     (.common:data)
+                  200008b0    0000000c     (.common:eml_b_I)
+                  200008bc    0000000c     (.common:eml_c_I)
+                  200008c8    0000000c     (.common:facc)
+                  200008d4    0000000c     (.common:fgyro)
+                  200008e0    0000000c     (.common:fmag)
+                  200008ec    0000000c     (.common:offset)
+                  200008f8    0000000c     (.common:rtb_x_0)
+                  20000904    0000000c     (.common:rtb_x_h_0)
+                  20000910    00000008     (.common:Out2)
+                  20000918    00000008     (.common:eml_Xh)
+                  20000920    00000008     (.common:eml_ipiv)
+                  20000928    00000008     (.common:eml_p)
+                  20000930    00000008     (.common:rtInf)
+                  20000938    00000008     (.common:rtMinusInf)
+                  20000940    00000008     (.common:rtNaN)
+                  20000948    00000004     (.common:eml_b_k)
+                  2000094c    00000004     (.common:eml_c_x)
+                  20000950    00000004     (.common:eml_cos_phi)
+                  20000954    00000004     (.common:eml_cos_theta)
+                  20000958    00000004     (.common:eml_i)
+                  2000095c    00000004     (.common:eml_j)
+                  20000960    00000004     (.common:eml_jA)
+                  20000964    00000004     (.common:eml_jBcol)
+                  20000968    00000004     (.common:eml_jp1j)
+                  2000096c    00000004     (.common:eml_k)
+                  20000970    00000004     (.common:eml_kAcol)
+                  20000974    00000004     (.common:eml_loop_ub)
+                  20000978    00000004     (.common:eml_mmj)
+                  2000097c    00000004     (.common:eml_scale)
+                  20000980    00000004     (.common:eml_sin_phi)
+                  20000984    00000004     (.common:eml_smax)
+                  20000988    00000004     (.common:eml_t)
+                  2000098c    00000004     (.common:eml_xk)
+                  20000990    00000004     (.common:eml_y)
+                  20000994    00000004     (.common:rtInfF)
+                  20000998    00000004     (.common:rtMinusInfF)
+                  2000099c    00000004     (.common:rtNaNF)
+                  200009a0    00000004     (.common:rtb_Gain1_idx)
+                  200009a4    00000004     (.common:rtb_Gain1_idx_0)
+                  200009a8    00000004     (.common:rtb_theta)
+                  200009ac    00000004     (.common:rtb_x_h_idx)
+                  200009b0    00000004     (.common:rtb_x_h_idx_0)
+                  200009b4    00000004     (.common:tmp_4)
+                  200009b8    00000004     (.common:tmp_5)
+                  200009bc    00000001     (.common:eml_firstNonZero)
+
+.data      0    200009c0    00000490     UNINITIALIZED
+                  200009c0    00000180     Kalman_Sim_data.obj (.data:Kalman_Sim_P)
+                  20000b40    000000b0     rtsv7M4_T_le_v4SPD16_eabi.lib : signal.obj (.data:sigtable)
+                  20000bf0    00000090     Kalman_Sim.obj (.data:tmp_8)
+                  20000c80    00000080     rtsv7M4_T_le_v4SPD16_eabi.lib : xvalues.obj (.data)
+                  20000d00    00000040     My_Init.obj (.data)
+                  20000d40    00000040     My_Init.obj (.data:sen_offset)
+                  20000d80    0000003c     My_Init.obj (.data:sen_data)
+                  20000dbc    00000024     My_Init.obj (.data:SENSOR_SIGN)
+                  20000de0    00000024     Kalman_Sim.obj (.data:tmp_6)
+                  20000e04    00000024     Kalman_Sim.obj (.data:tmp_7)
+                  20000e28    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.obj (.data)
+                  20000e30    00000008                                   : exit.obj (.data)
+                  20000e38    00000008                                   : feraiseexcept.obj (.data)
+                  20000e40    00000004     Kalman_Sim.obj (.data)
+                  20000e44    00000004     main.obj (.data)
+                  20000e48    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : errno.obj (.data)
+                  20000e4c    00000004                                   : stkdepth_vars.obj (.data)
+
+.stack     0    20000e50    00000200     UNINITIALIZED
+                  20000e50    00000200     --HOLE--
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00007ad0 records: 2, size/record: 8, table size: 16
+	.data: load addr=00007970, load size=0000014a bytes, run addr=200009c0, run size=00000490 bytes, compression=rle
+	.bss: load addr=00007ac8, load size=00000008 bytes, run addr=20000000, run size=000009bd bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00007abc records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_rle24
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address    name
+--------   ----
+00007341   C$$EXIT
+000076a7   CPUcpsie
+00005635   Calculate_Acc
+00004a93   Calculate_Compass
+00005b95   Calculate_Gyro
+00004947   Compass_Heading
+00005177   Delay_ms
+0000513b   Delay_s
+00007575   GPIODirModeSet
+00006be9   GPIOPadConfigSet
+000071e1   GPIOPinConfigure
+00007651   GPIOPinTypeGPIOOutput
+00007663   GPIOPinTypeI2CSCL
+00007675   GPIOPinTypeUART
+000076fb   GPIOPinWrite
+00004d75   I2C_Read_Packet_From_Sensor
+00004ce5   I2C_read_byte
+00004e97   I2C_write
+00004b8d   Init_Accelerometer
+00004c13   Init_Compass
+000072b9   Init_FPU
+00004bc7   Init_Gyro
+00004c4d   Init_I2C
+000072d5   Init_MCU
+00004f05   Init_Sensors
+00004fed   Init_Timer
+000070d9   IntEnable
+000076cb   IntMasterEnable
+20000d30   K
+20000000   Kalman_Sim_DWork
+20000e40   Kalman_Sim_M
+20000664   Kalman_Sim_M_
+200009c0   Kalman_Sim_P
+000046ad   Kalman_Sim_initialize
+00001675   Kalman_Sim_step
+00004771   Kalman_Sim_terminate
+000072e5   My_Init
+20000898   Out1
+20000910   Out2
+20000d10   Pitch_Acc
+000054e9   Read_Accelerometer
+000047dd   Read_Compass
+00005a4d   Read_Gyro
+000076bf   ResetISR
+20000d0c   Roll_Acc
+20000dbc   SENSOR_SIGN
+UNDEFED    SHT$$INIT_ARRAY$$Base
+UNDEFED    SHT$$INIT_ARRAY$$Limit
+20000d15   Size_Send_DMA_0
+20000d14   Size_Send_DMA_1
+00006ca1   SysCtlClockGet
+00007701   SysCtlDelay
+00007481   SysCtlPeripheralEnable
+00004f3d   Timer0IntHandler
+00004fb1   Timer1IntHandler
+00005097   Timer_CyRun
+20000d16   Timer_interrupt_flag
+20000d17   Timer_interrupt_flag_2
+20000d18   Timer_interrupt_flag_3
+20000d19   Timer_interrupt_flag_4
+000052a9   UART0IntHandler
+000076d5   UARTCharGet
+000076df   UARTCharPut
+000076b3   UARTCharsAvail
+000073c9   UARTConfigSetExpClk
+000075c1   UARTDisable
+00007629   UARTEnable
+0000770d   UARTIntClear
+000076f3   UARTIntEnable
+000076e9   UARTIntStatus
+00005219   UARTPutn
+200006f8   Uart_Array
+20000d1a   Uart_Send_0
+00005e59   _Atan
+20000c80   _Denorm
+00006b25   _Dnorm
+00006849   _Dscale
+00007385   _Dtest
+00007075   _Dunscale
+20000c90   _Eps
+20000e48   _Errno
+20000e38   _Fenv
+000074e9   _Feraise
+20000ca0   _Hugeval
+20000cb0   _Inf
+20000cc0   _Nan
+20000ce0   _Rteps
+000057a5   _Sin
+20000cd0   _Snan
+20000e3c   _Tls_setup__Fenv
+20000cf0   _Xbig
+20000cf8   _Zero
+20001050   __STACK_END
+00000200   __STACK_SIZE
+20001050   __STACK_TOP
+00007ad0   __TI_CINIT_Base
+00007ae0   __TI_CINIT_Limit
+00007abc   __TI_Handler_Table_Base
+00007ac8   __TI_Handler_Table_Limit
+00000001   __TI_args_main
+00006df1   __TI_auto_init
+20000e30   __TI_cleanup_ptr
+00007699   __TI_decompress_none
+00007707   __TI_decompress_rle24
+20000e34   __TI_dtors_ptr
+00000000   __TI_static_base__
+00007687   __TI_zero_init
+00006e85   __aeabi_cdcmpeq
+00006e85   __aeabi_cdcmple
+00006f0b   __aeabi_cdrcmple
+00007197   __aeabi_d2f
+00007271   __aeabi_d2iz
+00005cab   __aeabi_dadd
+00006299   __aeabi_ddiv
+00006959   __aeabi_dmul
+00005ca1   __aeabi_dsub
+00007449   __aeabi_f2d
+00007519   __aeabi_i2d
+00006f91   __aeabi_memclr
+00006f91   __aeabi_memclr4
+00006f91   __aeabi_memclr8
+00006d55   __aeabi_memcpy
+00006d55   __aeabi_memcpy4
+00006d55   __aeabi_memcpy8
+00006f93   __aeabi_memset
+00006f93   __aeabi_memset4
+00006f93   __aeabi_memset8
+0000759f   __aeabi_ui2d
+ffffffff   __binit__
+ffffffff   __c_args__
+20000e50   __stack
+00007611   _args_main
+00007229   _c_int00
+20000e28   _lock
+0000764b   _nop
+00007643   _register_lock
+0000763d   _register_unlock
+20000e2c   _unlock
+00007345   abort
+00006501   asin
+0000661d   atan2
+ffffffff   binit
+000072fd   copy_in
+000075dd   cos
+200008a4   data
+2000087c   eml_C
+20000750   eml_C_0
+20000774   eml_I
+20000798   eml_I_0
+20000154   eml_Kk
+200001e4   eml_P
+20000274   eml_P_0
+20000304   eml_Phik
+20000394   eml_Phik_0
+20000918   eml_Xh
+200008b0   eml_b_I
+20000668   eml_b_d
+20000948   eml_b_k
+20000424   eml_b_x
+200008bc   eml_c_I
+2000094c   eml_c_x
+20000950   eml_cos_phi
+20000954   eml_cos_theta
+200006b0   eml_d
+200009bc   eml_firstNonZero
+20000958   eml_i
+20000920   eml_ipiv
+2000095c   eml_j
+20000960   eml_jA
+20000964   eml_jBcol
+20000968   eml_jp1j
+2000096c   eml_k
+20000970   eml_kAcol
+20000974   eml_loop_ub
+20000978   eml_mmj
+20000928   eml_p
+2000097c   eml_scale
+20000980   eml_sin_phi
+20000984   eml_smax
+20000988   eml_t
+20000804   eml_x
+2000081c   eml_x_0
+2000098c   eml_xk
+20000990   eml_y
+0000734d   exit
+200008c8   facc
+000074b5   feraiseexcept
+200008d4   fgyro
+20000d04   flag
+200008e0   fmag
+00005fe5   fmod
+00000000   g_pfnVectors
+20000d08   i
+00005351   main
+20000e4c   main_func_sp
+00006d55   memcpy
+00006f99   memset
+200008ec   offset
+00007547   raise
+00006a55   rtGetInf
+00006aa1   rtGetInfF
+00006ab3   rtGetMinusInf
+00006aff   rtGetMinusInfF
+00007009   rtGetNaN
+00007055   rtGetNaNF
+20000930   rtInf
+20000994   rtInfF
+00006783   rtIsInf
+000067b1   rtIsInfF
+000067eb   rtIsNaN
+0000680b   rtIsNaNF
+20000938   rtMinusInf
+20000998   rtMinusInfF
+20000940   rtNaN
+2000099c   rtNaNF
+00006735   rt_InitInfAndNaN
+000063d1   rt_atan232_snf
+200009a0   rtb_Gain1_idx
+200009a4   rtb_Gain1_idx_0
+20000834   rtb_TmpSignalConversionAtSFun_0
+2000084c   rtb_TmpSignalConversionAtSFunct
+200009a8   rtb_theta
+200008f8   rtb_x_0
+20000864   rtb_x_h
+20000904   rtb_x_h_0
+200009ac   rtb_x_h_idx
+200009b0   rtb_x_h_idx_0
+20000728   rx_temp_buffer
+20000d80   sen_data
+20000d40   sen_offset
+00007409   signal
+000075f7   sin
+00006151   sqrt
+20000d34   temp
+20000d35   temp2
+20000d36   temp3
+20000d37   temp4
+20000d38   temp5
+20000d39   temp6
+20000d2c   theta
+20000d3c   time
+20000880   time_1
+200004b4   tmp
+20000544   tmp_0
+200007bc   tmp_1
+200007e0   tmp_2
+200005d4   tmp_3
+200009b4   tmp_4
+200009b8   tmp_5
+20000d20   v
+20000e44   value
+20000d00   z_scale
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address    name
+--------   ----
+00000000   __TI_static_base__
+00000000   g_pfnVectors
+00000001   __TI_args_main
+00000200   __STACK_SIZE
+00001675   Kalman_Sim_step
+000046ad   Kalman_Sim_initialize
+00004771   Kalman_Sim_terminate
+000047dd   Read_Compass
+00004947   Compass_Heading
+00004a93   Calculate_Compass
+00004b8d   Init_Accelerometer
+00004bc7   Init_Gyro
+00004c13   Init_Compass
+00004c4d   Init_I2C
+00004ce5   I2C_read_byte
+00004d75   I2C_Read_Packet_From_Sensor
+00004e97   I2C_write
+00004f05   Init_Sensors
+00004f3d   Timer0IntHandler
+00004fb1   Timer1IntHandler
+00004fed   Init_Timer
+00005097   Timer_CyRun
+0000513b   Delay_s
+00005177   Delay_ms
+00005219   UARTPutn
+000052a9   UART0IntHandler
+00005351   main
+000054e9   Read_Accelerometer
+00005635   Calculate_Acc
+000057a5   _Sin
+00005a4d   Read_Gyro
+00005b95   Calculate_Gyro
+00005ca1   __aeabi_dsub
+00005cab   __aeabi_dadd
+00005e59   _Atan
+00005fe5   fmod
+00006151   sqrt
+00006299   __aeabi_ddiv
+000063d1   rt_atan232_snf
+00006501   asin
+0000661d   atan2
+00006735   rt_InitInfAndNaN
+00006783   rtIsInf
+000067b1   rtIsInfF
+000067eb   rtIsNaN
+0000680b   rtIsNaNF
+00006849   _Dscale
+00006959   __aeabi_dmul
+00006a55   rtGetInf
+00006aa1   rtGetInfF
+00006ab3   rtGetMinusInf
+00006aff   rtGetMinusInfF
+00006b25   _Dnorm
+00006be9   GPIOPadConfigSet
+00006ca1   SysCtlClockGet
+00006d55   __aeabi_memcpy
+00006d55   __aeabi_memcpy4
+00006d55   __aeabi_memcpy8
+00006d55   memcpy
+00006df1   __TI_auto_init
+00006e85   __aeabi_cdcmpeq
+00006e85   __aeabi_cdcmple
+00006f0b   __aeabi_cdrcmple
+00006f91   __aeabi_memclr
+00006f91   __aeabi_memclr4
+00006f91   __aeabi_memclr8
+00006f93   __aeabi_memset
+00006f93   __aeabi_memset4
+00006f93   __aeabi_memset8
+00006f99   memset
+00007009   rtGetNaN
+00007055   rtGetNaNF
+00007075   _Dunscale
+000070d9   IntEnable
+00007197   __aeabi_d2f
+000071e1   GPIOPinConfigure
+00007229   _c_int00
+00007271   __aeabi_d2iz
+000072b9   Init_FPU
+000072d5   Init_MCU
+000072e5   My_Init
+000072fd   copy_in
+00007341   C$$EXIT
+00007345   abort
+0000734d   exit
+00007385   _Dtest
+000073c9   UARTConfigSetExpClk
+00007409   signal
+00007449   __aeabi_f2d
+00007481   SysCtlPeripheralEnable
+000074b5   feraiseexcept
+000074e9   _Feraise
+00007519   __aeabi_i2d
+00007547   raise
+00007575   GPIODirModeSet
+0000759f   __aeabi_ui2d
+000075c1   UARTDisable
+000075dd   cos
+000075f7   sin
+00007611   _args_main
+00007629   UARTEnable
+0000763d   _register_unlock
+00007643   _register_lock
+0000764b   _nop
+00007651   GPIOPinTypeGPIOOutput
+00007663   GPIOPinTypeI2CSCL
+00007675   GPIOPinTypeUART
+00007687   __TI_zero_init
+00007699   __TI_decompress_none
+000076a7   CPUcpsie
+000076b3   UARTCharsAvail
+000076bf   ResetISR
+000076cb   IntMasterEnable
+000076d5   UARTCharGet
+000076df   UARTCharPut
+000076e9   UARTIntStatus
+000076f3   UARTIntEnable
+000076fb   GPIOPinWrite
+00007701   SysCtlDelay
+00007707   __TI_decompress_rle24
+0000770d   UARTIntClear
+00007abc   __TI_Handler_Table_Base
+00007ac8   __TI_Handler_Table_Limit
+00007ad0   __TI_CINIT_Base
+00007ae0   __TI_CINIT_Limit
+20000000   Kalman_Sim_DWork
+20000154   eml_Kk
+200001e4   eml_P
+20000274   eml_P_0
+20000304   eml_Phik
+20000394   eml_Phik_0
+20000424   eml_b_x
+200004b4   tmp
+20000544   tmp_0
+200005d4   tmp_3
+20000664   Kalman_Sim_M_
+20000668   eml_b_d
+200006b0   eml_d
+200006f8   Uart_Array
+20000728   rx_temp_buffer
+20000750   eml_C_0
+20000774   eml_I
+20000798   eml_I_0
+200007bc   tmp_1
+200007e0   tmp_2
+20000804   eml_x
+2000081c   eml_x_0
+20000834   rtb_TmpSignalConversionAtSFun_0
+2000084c   rtb_TmpSignalConversionAtSFunct
+20000864   rtb_x_h
+2000087c   eml_C
+20000880   time_1
+20000898   Out1
+200008a4   data
+200008b0   eml_b_I
+200008bc   eml_c_I
+200008c8   facc
+200008d4   fgyro
+200008e0   fmag
+200008ec   offset
+200008f8   rtb_x_0
+20000904   rtb_x_h_0
+20000910   Out2
+20000918   eml_Xh
+20000920   eml_ipiv
+20000928   eml_p
+20000930   rtInf
+20000938   rtMinusInf
+20000940   rtNaN
+20000948   eml_b_k
+2000094c   eml_c_x
+20000950   eml_cos_phi
+20000954   eml_cos_theta
+20000958   eml_i
+2000095c   eml_j
+20000960   eml_jA
+20000964   eml_jBcol
+20000968   eml_jp1j
+2000096c   eml_k
+20000970   eml_kAcol
+20000974   eml_loop_ub
+20000978   eml_mmj
+2000097c   eml_scale
+20000980   eml_sin_phi
+20000984   eml_smax
+20000988   eml_t
+2000098c   eml_xk
+20000990   eml_y
+20000994   rtInfF
+20000998   rtMinusInfF
+2000099c   rtNaNF
+200009a0   rtb_Gain1_idx
+200009a4   rtb_Gain1_idx_0
+200009a8   rtb_theta
+200009ac   rtb_x_h_idx
+200009b0   rtb_x_h_idx_0
+200009b4   tmp_4
+200009b8   tmp_5
+200009bc   eml_firstNonZero
+200009c0   Kalman_Sim_P
+20000c80   _Denorm
+20000c90   _Eps
+20000ca0   _Hugeval
+20000cb0   _Inf
+20000cc0   _Nan
+20000cd0   _Snan
+20000ce0   _Rteps
+20000cf0   _Xbig
+20000cf8   _Zero
+20000d00   z_scale
+20000d04   flag
+20000d08   i
+20000d0c   Roll_Acc
+20000d10   Pitch_Acc
+20000d14   Size_Send_DMA_1
+20000d15   Size_Send_DMA_0
+20000d16   Timer_interrupt_flag
+20000d17   Timer_interrupt_flag_2
+20000d18   Timer_interrupt_flag_3
+20000d19   Timer_interrupt_flag_4
+20000d1a   Uart_Send_0
+20000d20   v
+20000d2c   theta
+20000d30   K
+20000d34   temp
+20000d35   temp2
+20000d36   temp3
+20000d37   temp4
+20000d38   temp5
+20000d39   temp6
+20000d3c   time
+20000d40   sen_offset
+20000d80   sen_data
+20000dbc   SENSOR_SIGN
+20000e28   _lock
+20000e2c   _unlock
+20000e30   __TI_cleanup_ptr
+20000e34   __TI_dtors_ptr
+20000e38   _Fenv
+20000e3c   _Tls_setup__Fenv
+20000e40   Kalman_Sim_M
+20000e44   value
+20000e48   _Errno
+20000e4c   main_func_sp
+20000e50   __stack
+20001050   __STACK_END
+20001050   __STACK_TOP
+ffffffff   __binit__
+ffffffff   __c_args__
+ffffffff   binit
+UNDEFED    SHT$$INIT_ARRAY$$Base
+UNDEFED    SHT$$INIT_ARRAY$$Limit
+
+[252 symbols]

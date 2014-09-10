@@ -94,17 +94,21 @@ while 1:
         #time.sleep(1/10)
         angles = line.split(",")
         #time.sleep(1/20)
-        print line
+        #print line
         
         ax = eval(angles[1])
         ay = eval(angles[2])
         az = eval(angles[3])         
-            
+
+          
                 
         roll = ax*grad2rad/10
         pitch = ay*grad2rad/10
         yaw =  az*grad2rad/10
-
+        
+        #print roll
+        print '{0}, {1}, {2}'.format(roll, pitch, yaw)
+        
         axis=(cos(pitch)*cos(yaw),-cos(pitch)*sin(yaw),sin(pitch))
         up=(sin(roll)*sin(yaw)+cos(roll)*sin(pitch)*cos(yaw),sin(roll)*cos(yaw)-cos(roll)*sin(pitch)*sin(yaw),-cos(roll)*cos(pitch))
         

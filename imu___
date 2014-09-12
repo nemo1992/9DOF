@@ -1,0 +1,35 @@
+import serial
+import struct
+
+from ctypes import *
+ser = serial.Serial('COM6',115200,timeout=0,rtscts=1)
+#def convert(s):
+#    i = int(s, 16)                   # convert from hex to a Python int
+#    cp = pointer(c_int(i))           # make this into a c integer
+#    fp = cast(cp, POINTER(c_float))  # cast the int pointer to a float pointer
+#    return fp.contents.value         # dereference the pointer, get the float
+#ser.write('.')
+#line = ser.read(4)
+#bytes = str.encode(line)
+#type(bytes)
+#print convert(bytes)
+#my_str = "hello world"
+#bytes = str.encode(my_str)
+#print type(bytes) # insures its bytes
+while 1 :
+    try:
+        ser.write('.')
+        print "###"
+        line = ser.read(4)
+        print "---"
+        #bytes = str.encode(line)
+        #type(bytes)
+
+        print line
+        print struct.unpack('!f', line)[0]
+        
+    except ValueError:
+        p.close    
+
+        
+p.close
